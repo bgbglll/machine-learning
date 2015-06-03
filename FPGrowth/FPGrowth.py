@@ -39,7 +39,7 @@ def createTree(dataSet, minSup=1): #create FP-tree from dataset but don't mine
     #print 'headerTable: ',headerTable
     retTree = treeNode('Null Set', 1, None) #create tree
     for tranSet, count in dataSet.items():  #go through dataset 2nd time
-        localD = {}
+        localD = {} 
         for item in tranSet:  #put transaction items in order
             if item in freqItemSet:
                 localD[item] = headerTable[item][0]
@@ -140,7 +140,7 @@ def getLotsOfWeibos():
     #print(str(return_redirect_uri).find('=')) 
     if(str(return_redirect_uri).find('=')==-1) :
         webbrowser.open_new(authorize_url)
-        print 'ÊäÈëä¯ÀÀÆ÷urlÖÐcodeºóÃæµÄÄÚÈÝºó°´»Ø³µ¼ü£º'  
+        print 'è¾“å…¥æµè§ˆå™¨urlä¸­codeåŽé¢çš„å†…å®¹åŽæŒ‰å›žè½¦é”®ï¼š'  
         code = raw_input()  
     else:
         code = return_redirect_uri.split('=')[1]  #  
@@ -150,7 +150,7 @@ def getLotsOfWeibos():
     api.set_access_token(access_token, expires_in)   
     resultPages=[]
     pages=15
-    #dataSeta=['iG 3:1 zhansheng VG£¡gongxi iG£¡http:///www.aa.com','iG 3:1 zhansheng VG£¡http:///www.aa.com',' iG zhansheng VG haha£¡http:///www.aa.com','iG zhansheng VG£¡ha http:///www.aa.com']
+    #dataSeta=['iG 3:1 zhansheng VGï¼gongxi iGï¼http:///www.aa.com','iG 3:1 zhansheng VGï¼http:///www.aa.com',' iG zhansheng VG hahaï¼http:///www.aa.com','iG zhansheng VGï¼ha http:///www.aa.com']
     for j in range(1,pages+1):
         statuses=api.statuses.friends_timeline.get(count=100,page=j)['statuses']
           
@@ -162,9 +162,9 @@ def getLotsOfWeibos():
         #for temp in dataSeta:         
             temp = statuses[i]['text'].encode('gbk', 'ignore') 
             name = statuses[i]['user']['screen_name'].encode('gbk', 'ignore') 
-            #temp = 'iG 3:1Õ½Ê¤VG£¡¹§Ï²iG£¡http:///www.aa.com'
-            print('êÇ³Æ£º'+name)
-            print('Î¢²©£º'+temp)
+            #temp = 'iG 3:1æˆ˜èƒœVGï¼æ­å–œiGï¼http:///www.aa.com'
+            print('æ˜µç§°ï¼š'+name)
+            print('å¾®åšï¼š'+temp)
             sleep(2)
             temp = textParse(temp)
             #print(temp)
@@ -172,7 +172,7 @@ def getLotsOfWeibos():
             #print(seg_list)
             #sleep(1)
             tempPages=[]
-            print('Î¢²©·Ö´Ê£º')
+            print('å¾®åšåˆ†è¯ï¼š')
             for seg in seg_list:  
                 print (seg.encode('gbk', 'ignore')+'/'),   
                 if(len(seg)>=2):  
